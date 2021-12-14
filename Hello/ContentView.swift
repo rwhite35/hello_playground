@@ -20,7 +20,14 @@ struct ContentView: View
     
     func getBoxcast(i:Int) -> String {
         let array = boxCast.getBoxcastView()
-        return String(array[i])
+        let range = i..<array.count
+        var string = ""
+        
+        for index in range {
+            string = string + String(array[index])
+            print("ContentView.getBoxcast index \(index) with range \(range) produces character \(string)")
+        }
+        return string
     }
     
     var body: some View {
@@ -39,7 +46,7 @@ struct ContentView: View
                     .multilineTextAlignment(.center)
                 
                 /// Text row 3
-                Text(getBoxcast(i: 0))
+                Text(getBoxcast(i:2))
                     .padding(20)
                     .multilineTextAlignment(.center)
                 Spacer()
@@ -53,10 +60,9 @@ struct ContentView_Previews: PreviewProvider
     static var previews: some View {
         
         if #available(iOS 15.0, *) {
-            //ContentView(boxCast: Boxcast.getBoxcastView(Boxcast.didChangeValue(forKey: "id")))
-            //    .previewInterfaceOrientation(.portraitUpsideDown)
+            /// for Preview frame
         } else {
-            // Fallback on earlier versions
+            /// Fallback on earlier versions
         }
     }
 }

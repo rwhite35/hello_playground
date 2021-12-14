@@ -15,7 +15,7 @@ struct HelloApp: App
     {
         WindowGroup<ContentView> {
             ContentView.init(
-                boxCast: Boxcast.init(string: "anuy")
+                boxCast: Boxcast.init(string: "Boxcast")
             )
         }
     }

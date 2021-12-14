@@ -13,6 +13,7 @@
 		6B33764C26B0578500593BBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B33764B26B0578500593BBB /* Preview Assets.xcassets */; };
 		6B33765726B0578500593BBB /* HelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B33765626B0578500593BBB /* HelloTests.swift */; };
 		6B33766226B0578500593BBB /* HelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B33766126B0578500593BBB /* HelloUITests.swift */; };
+		6BAA77D427694A57005B8A00 /* CharsStringResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAA77D327694A57005B8A00 /* CharsStringResult.swift */; };
 		6BDC208F27611F7600E4F7E2 /* Boxcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC208E27611F7600E4F7E2 /* Boxcast.swift */; };
 		6BDC2091276122B900E4F7E2 /* CharsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC2090276122B900E4F7E2 /* CharsModel.swift */; };
 		6BDC20932761282500E4F7E2 /* Chars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDC20922761282500E4F7E2 /* Chars.swift */; };
@@ -48,6 +49,7 @@
 		6B33765D26B0578500593BBB /* HelloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B33766126B0578500593BBB /* HelloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloUITests.swift; sourceTree = "<group>"; };
 		6B33766326B0578500593BBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BAA77D327694A57005B8A00 /* CharsStringResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharsStringResult.swift; sourceTree = "<group>"; };
 		6BDC208E27611F7600E4F7E2 /* Boxcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boxcast.swift; sourceTree = "<group>"; };
 		6BDC2090276122B900E4F7E2 /* CharsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharsModel.swift; sourceTree = "<group>"; };
 		6BDC20922761282500E4F7E2 /* Chars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chars.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				6B33764826B0578500593BBB /* Assets.xcassets */,
 				6B33764D26B0578500593BBB /* Info.plist */,
 				6B33764A26B0578500593BBB /* Preview Content */,
+				6BAA77D327694A57005B8A00 /* CharsStringResult.swift */,
 			);
 			path = Hello;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				6B33764726B0578400593BBB /* ContentView.swift in Sources */,
 				6BDC2091276122B900E4F7E2 /* CharsModel.swift in Sources */,
 				6BDC208F27611F7600E4F7E2 /* Boxcast.swift in Sources */,
+				6BAA77D427694A57005B8A00 /* CharsStringResult.swift in Sources */,
 				6B33764526B0578400593BBB /* HelloApp.swift in Sources */,
 				6BDC20932761282500E4F7E2 /* Chars.swift in Sources */,
 			);
