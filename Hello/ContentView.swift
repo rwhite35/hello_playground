@@ -19,7 +19,7 @@ struct ContentView: View
     )
     
     func getBoxcast(i:Int) -> String {
-        let array = boxCast.getBoxcastView()
+        let array = boxCast.getBoxcastCharacters()
         let range = i..<array.count
         var string = ""
         
@@ -36,7 +36,7 @@ struct ContentView: View
             VStack(alignment: .trailing) {
                 Spacer()
                 /// Text row 1
-                Text("UUID: \(charString.id.uuidString)")
+                Text("UUID: \(charString.getUUID())...")
                     .padding(20)
                     .multilineTextAlignment(.center)
                 
@@ -49,6 +49,9 @@ struct ContentView: View
                 Text(getBoxcast(i:2))
                     .padding(20)
                     .multilineTextAlignment(.center)
+                
+                /// Text row 4, Each char'
+                
                 Spacer()
             }
         

@@ -9,6 +9,5 @@ import Foundation
 
 class CharsModel: ObservableObject
 {
-    @Published var textString = "Type text here!"
-    // @Published var charsArray: [Character] = []
+    @Published var textString = "Type Mucho Text Here!"
 }

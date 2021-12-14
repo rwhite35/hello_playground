@@ -15,14 +15,13 @@ final class Boxcast: NSObject, ObservableObject
     
     init(string: String) {
         super .init()
-        print("Boxcast.init what is an \(string)")
         setDesc(string: string)
     }
     
-    func setId(count: Int)
+    func setId(uuid: Int)
     {
-        print("bx \(#line) Boxcast.setId count \(count)")
-        self.id = count
+        print("bx \(#line) Boxcast.setId count \(uuid)")
+        self.id = uuid
     }
     
     func setDesc(string: String)
@@ -31,7 +30,7 @@ final class Boxcast: NSObject, ObservableObject
         self.desc = string
     }
     
-    func getBoxcastView() -> [Character]
+    func getBoxcastCharacters() -> [Character]
     {
         print("bx \(#line) getting string of characters array.")
         return Array(self.desc)
