@@ -11,13 +11,17 @@ import SwiftUI
 struct ContentView: View
 {
     
+    /// on state change notify these publishers
     @StateObject var boxCast: Boxcast
-    let charString = CharsStringResult.init(string: "Happy")
+    @StateObject var charsString: CharsString
+    
+    /// initialize all other elements
     let charFormView = CharForm.init(
         model: CharFormModel(),
         textFieldHasFocus: true
     )
     
+    /// work methods
     func getBoxcast(i:Int) -> String {
         let array = boxCast.getBoxcastCharacters()
         let range = i..<array.count
@@ -30,13 +34,18 @@ struct ContentView: View
         return string
     }
     
+    func getCharsStringUUID() -> String {
+        let uuid = charsString.getUUID()
+        return uuid
+    }
+    
     var body: some View {
         
             /// Text views as a V stack
             VStack(alignment: .trailing) {
                 Spacer()
                 /// Text row
-                Text("UUID: \(charString.getUUID())...")
+                Text("UUID: \(getCharsStringUUID())...")
                     .padding(20)
                     .multilineTextAlignment(.center)
                 

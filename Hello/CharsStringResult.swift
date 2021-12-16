@@ -8,16 +8,39 @@
 import Foundation
 
 struct CharsStringResult {
-    let id = UUID()
+    
+    typealias charsArray = Array<CharsStringResult>
     var charString: String
-    var charsArray: [Character] = []
     
     init(string: String) {
         charString = string
-        charsArray = Array(string)
+        print("CharsStringResult \(#line): init string \(string)")
+    }
+}
+
+final class CharsString: NSObject, ObservableObject
+{
+    @Published var desc: String = ""
+    var charsStrResult:CharsStringResult?
+    let id = UUID()
+    
+    init(
+        _:CharsStringResult.charsArray,
+        string: String
+    ) {
+        super .init()
+        setDesc(string: string)
+        charsStrResult?.charString = string
     }
     
-    func getUUID() -> String {
+    func setDesc(string: String)
+    {
+        print("CharsString \(#line): setDesc string \(string)")
+        self.desc = string
+    }
+    
+    func getUUID() -> String
+    {
         let string = String(id.uuidString)
         return String(string.prefix(8))
     }

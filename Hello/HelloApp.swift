@@ -14,8 +14,13 @@ struct HelloApp: App
     var body: some Scene
     {
         WindowGroup<ContentView> {
+            
             ContentView.init(
-                boxCast: Boxcast.init(string: "Boxcast")
+                boxCast: Boxcast.init(string: "Boxcast"),
+                charsString: CharsString.init(
+                    CharsStringResult.charsArray(),
+                    string: "Friend"
+                )
             )
         }
     }

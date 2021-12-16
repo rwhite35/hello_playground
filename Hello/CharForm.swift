@@ -15,7 +15,7 @@ public struct CharForm: View
     var fieldName = "Typewriter"
     
     public var body: some View {
-        let _ = print("Chars.body view")
+        let _ = print("CharForm \(#line): added to ContentView")
         
         Form {
             if #available(iOS 15.0, *) {
@@ -33,9 +33,5 @@ public struct CharForm: View
             }
         }
         .frame(height: 125.00, alignment: .center)
-    }
-    
-    func didDismiss() {
-        /// should dismiss here
     }
 }
