@@ -1,5 +1,5 @@
 //
-//  CharsModel.swift
+//  CharFormModel.swift
 //  Hello
 //
 //  Created by Ron White on 12/8/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharsModel: ObservableObject
+class CharFormModel: ObservableObject
 {
     @Published var textString = "Type Mucho Text Here!"
 }

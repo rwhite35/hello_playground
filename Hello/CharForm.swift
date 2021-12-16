@@ -1,5 +1,5 @@
 //
-//  Chars.swift
+//  CharForm.swift
 //  Hello
 //
 //  Created by Ron White on 12/8/21.
@@ -8,14 +8,15 @@
 import Foundation
 import SwiftUI
 
-public struct Chars: View
+public struct CharForm: View
 {
-    @ObservedObject var model: CharsModel
+    @ObservedObject var model: CharFormModel
     @State public var textFieldHasFocus: Bool
     var fieldName = "Typewriter"
     
     public var body: some View {
         let _ = print("Chars.body view")
+        
         Form {
             if #available(iOS 15.0, *) {
                 TextField(

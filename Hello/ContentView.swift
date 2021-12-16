@@ -13,8 +13,8 @@ struct ContentView: View
     
     @StateObject var boxCast: Boxcast
     let charString = CharsStringResult.init(string: "Happy")
-    let charsView = Chars.init(
-        model: CharsModel(),
+    let charFormView = CharForm.init(
+        model: CharFormModel(),
         textFieldHasFocus: true
     )
     
@@ -35,17 +35,17 @@ struct ContentView: View
             /// Text views as a V stack
             VStack(alignment: .trailing) {
                 Spacer()
-                /// Text row 1
+                /// Text row
                 Text("UUID: \(charString.getUUID())...")
                     .padding(20)
                     .multilineTextAlignment(.center)
                 
-                /// Text row 2
-                charsView.body
+                /// Form row
+                charFormView.body
                     .padding(20)
                     .multilineTextAlignment(.center)
                 
-                /// Text row 3
+                /// Text row
                 Text(getBoxcast(i:2))
                     .padding(20)
                     .multilineTextAlignment(.center)
