@@ -2,6 +2,10 @@
 //  HelloApp.swift
 //  Hello
 //
+//  the apps root view. This would be similar to UIApplication(app)
+//  requires initializing any Views dependent object. For this
+//  project thats Boxcast class and CharsString 
+//
 //  Created by Ron White on 7/27/21.
 //
 

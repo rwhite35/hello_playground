@@ -2,6 +2,9 @@
 //  Boxcast.swift
 //  Hello
 //
+//  a generic plan old swift class with observable properties
+//  that when updated, notifies this class.
+//
 //  Created by Ron White on 12/8/21.
 //
 
@@ -17,12 +20,6 @@ final class Boxcast: NSObject, ObservableObject
     {
         super .init()
         setDesc(string: string)
-    }
-    
-    func setId(uuid: Int)
-    {
-        print("Boxcast \(#line): setId count \(uuid)")
-        self.id = uuid
     }
     
     func setDesc(string: String)

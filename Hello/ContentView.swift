@@ -2,6 +2,8 @@
 //  ContentView.swift
 //  Hello
 //
+//  assembles our view from constituent parts
+//
 //  Created by Ron White on 7/27/21.
 //
 
@@ -10,19 +12,27 @@ import SwiftUI
 
 struct ContentView: View
 {
-    
     /// on state change notify these publishers
     @StateObject var boxCast: Boxcast
     @StateObject var charsString: CharsString
     
-    /// initialize all other elements
+    /// this needed hoisted to property status instead of trying to initialize in the body View
+    @State var charsStringResult = CharsStringResult(
+        rowContent:(1...5).map { String("Row \($0)") }
+    )
+    
+    /// instantiate Form view
     let charFormView = CharForm.init(
         model: CharFormModel(),
         textFieldHasFocus: true
     )
     
+    /// instantiate Label view
+    let charsLabel = CharsLabel.init()
+    
     /// work methods
-    func getBoxcast(i:Int) -> String {
+    func getBoxcast(i:Int) -> String
+    {
         let array = boxCast.getBoxcastCharacters()
         let range = i..<array.count
         var string = ""
@@ -34,10 +44,13 @@ struct ContentView: View
         return string
     }
     
-    func getCharsStringUUID() -> String {
+    
+    func getCharsStringUUID() -> String
+    {
         let uuid = charsString.getUUID()
         return uuid
     }
+    
     
     var body: some View {
         
@@ -49,7 +62,7 @@ struct ContentView: View
                     .padding(20)
                     .multilineTextAlignment(.center)
                 
-                /// Form row
+                /// attach Form view
                 charFormView.body
                     .padding(20)
                     .multilineTextAlignment(.center)
@@ -59,11 +72,19 @@ struct ContentView: View
                     .padding(20)
                     .multilineTextAlignment(.center)
                 
-                /// Text row 4, Each char'
+                /// attach Label view
+                charsLabel.body
+                    .padding(20)
+                    .multilineTextAlignment(.center)
                 
+                /// attached ElementsList with CharsStringResult rows of content
+                NavigationView {
+                    ElementsList(model: $charsStringResult.projectedValue).body
+                }
+                
+                /// done with layout
                 Spacer()
             }
-        
     }
 }
 
