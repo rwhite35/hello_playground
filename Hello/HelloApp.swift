@@ -22,7 +22,7 @@ struct HelloApp: App
             ContentView.init(
                 boxCast: Boxcast.init(string: "Boxcast"),
                 charsString: CharsString.init(
-                    CharsStringResult.charsArray(),
+                    CharsStringModel.charsArray(),
                     string: "Friend"
                 )
             )

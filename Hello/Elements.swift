@@ -8,35 +8,59 @@
 import Foundation
 import SwiftUI
 
-struct Elements: View {
+///  Elements Model
+///  defines the List.Elements properties and type components
+///    - Returns container object with bindable Row property
+struct Elements
+{
+    typealias strIndex = StringProtocol
     
-   @Binding var row: CharsStringResult.Row
+    struct Row : Identifiable {
+        var text = "default"
+        let id = UUID()
+    }
+    
+    var rows: [Row]
+    
+    init<S: Sequence>(rowContent: S) where S.Element: strIndex {
+        self.rows = rowContent.map { Row( text: String($0) ) }
+    }
+}
+
+/// Elements Cell
+///  defines the content of the row being rendered
+///    -Returns TextField with Row.text value
+struct ElementsCell: View
+{
+    @Binding var row: Elements.Row
     
     var body: some View {
-        TextField("Field",text:$row.text)
+        TextField("Title",text:$row.text)
     }
 }
 
 
-/// Issue 1: originally this was binding to the container and not a property
-/// because CharsStringResult was initializing the object incorrectly.
-/// rather then initializing a property which could be bound
-struct ElementsList: View {
-
-    @Binding var model: CharsStringResult
+/// Elements List
+///  builds one or more rows of dynamic list.
+///   - Returns List object with one or more rows of input cells
+struct ElementsList: View
+{
+    @Binding var model: Elements
     
     var body: some View {
     
         if #available(iOS 15.0, *) {
-            let _ = print("ElementsList \(#line): listing CharsStringResult row.")
+            let _ = print("ElementsList \(#line): adding Cell rows.")
             List {
                 ForEach($model.rows.indices) { index in
-                    return Elements(row: self.$model.rows[index])
+                    return ElementsCell(row: self.$model.rows[index])
                 }
             }
-        } else {
-            // Fallback on earlier versions
-            Text("SomeText")
+        } else {  // Fallback on earlier versions
+            let _ = print("ElementsList \(#line): adding one Cell row.")
+            List {
+                TextField("Title",text:$model.rows[0].text)
+            }
         }
 
     }

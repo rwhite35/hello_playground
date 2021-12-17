@@ -11,32 +11,10 @@
 import Foundation
 import SwiftUI
 
-struct CharsStringResult {
-    
-    typealias charsArray = Array<CharsStringResult>
-    
-    struct Row : Identifiable {
-        var text = "default"
-        let id = UUID()
-    }
-
-    // var rows: [Row] = [Row]()
-    var rows: [Row]
+struct CharsStringModel
+{    
+    typealias charsArray = Array<CharsStringModel>
     var charString: String = "some string"
-    
-    init<S: Sequence>(rowContent: S) where S.Element: StringProtocol {
-        self.rows = rowContent.map { Row( text: String($0) ) }
-    }
-    
-    /*
-    /// this was the wrong initializer for what we wanted to do
-    /// which is defering the content to where the view calls it
-    init(string: String) {
-        charString = string
-        print("CharsStringResult \(#line): init string \(string)")
-        rows = [Row(text: "string")]
-    }
-    */
 }
 
 
@@ -56,11 +34,11 @@ struct CharsLabel: View
 final class CharsString: NSObject, ObservableObject
 {
     @Published var desc: String = ""
-    var charsStrResult:CharsStringResult?
+    var charsStrResult:CharsStringModel?
     let id = UUID()
     
     init(
-        _:CharsStringResult.charsArray,
+        _:CharsStringModel.charsArray,
         string: String
     ) {
         super .init()

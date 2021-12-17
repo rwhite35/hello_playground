@@ -17,7 +17,7 @@ struct ContentView: View
     @StateObject var charsString: CharsString
     
     /// this needed hoisted to property status instead of trying to initialize in the body View
-    @State var charsStringResult = CharsStringResult(
+    @State var listElements = Elements(
         rowContent:(1...5).map { String("Row \($0)") }
     )
     
@@ -79,7 +79,7 @@ struct ContentView: View
                 
                 /// attached ElementsList with CharsStringResult rows of content
                 NavigationView {
-                    ElementsList(model: $charsStringResult.projectedValue).body
+                    ElementsList(model: $listElements.projectedValue).body
                 }
                 
                 /// done with layout
