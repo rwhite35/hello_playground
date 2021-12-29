@@ -2,6 +2,12 @@
 //  Elements.swift
 //  Hello
 //
+//  Constructs a list of dynamic text fields bound (Binding<Elements.Row>)
+//  to a Sequence of indexed rows of text that are passed in when added to
+//  the content view.
+//
+//  reference: https://developer.apple.com/forums/thread/124322
+//
 //  Created by Ron White on 12/16/21.
 //
 
@@ -16,7 +22,7 @@ struct Elements
     typealias strIndex = StringProtocol
     
     struct Row : Identifiable {
-        var text = "default"
+        var text = ""
         let id = UUID()
     }
     
@@ -24,6 +30,9 @@ struct Elements
     
     init<S: Sequence>(rowContent: S) where S.Element: strIndex {
         self.rows = rowContent.map { Row( text: String($0) ) }
+        let indx = self.rows.startIndex
+        let txt = self.rows[indx]
+        print("Elements \(#line) the Element at index \(indx) has string: \(txt)")
     }
 }
 

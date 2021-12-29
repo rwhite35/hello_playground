@@ -2,8 +2,7 @@
 //  CharsStringResult.swift
 //  Hello
 //
-//  a complex object with lots of nuanced features
-//  good reference: https://developer.apple.com/forums/thread/124322
+
 //
 //  Created by Ron White on 12/14/21.
 //
@@ -11,6 +10,8 @@
 import Foundation
 import SwiftUI
 
+/// Characters Model
+///  simple model that defines a custom type object
 struct CharsStringModel
 {    
     typealias charsArray = Array<CharsStringModel>
