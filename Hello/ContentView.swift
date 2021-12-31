@@ -39,11 +39,17 @@ struct ContentView: View
         
         for index in range {
             string = string + String(array[index])
-            print("ContentView.getBoxcast index \(index) with range \(range) produces character \(string)")
+            // print("CV.getBoxcast index \(index) with range \(range) produces character \(string)")
         }
         return string
     }
     
+    // for text field
+    func getUsersName() -> String
+    {
+        let name = boxCast.getUsersName()
+        return name
+    }
     
     func getCharsStringUUID() -> String
     {
@@ -51,40 +57,42 @@ struct ContentView: View
         return uuid
     }
     
-    
     var body: some View {
         
-            /// Text views as a V stack
-            VStack(alignment: .trailing) {
-                Spacer()
-                /// Text row
-                Text("UUID: \(getCharsStringUUID())...")
-                    .padding(20)
-                    .multilineTextAlignment(.center)
+        VStack(alignment: .trailing) {
+            Spacer()
+            /// Text row
+            Text("UUID: \(getCharsStringUUID())...")
+                .padding(20)
+                .multilineTextAlignment(.center)
+            
+            /// Text first Users.name
+            Text("Hello \(getUsersName())")
+                .padding(20)
+                .multilineTextAlignment(.center)
                 
-                /// attach Form view
-                charFormView.body
-                    .padding(20)
-                    .multilineTextAlignment(.center)
+            /// attach Form view
+            charFormView.body
+                .padding(20)
+                .multilineTextAlignment(.center)
                 
-                /// Text row
-                Text(getBoxcast(i:2))
-                    .padding(20)
-                    .multilineTextAlignment(.center)
+            /// Text row
+            Text(getBoxcast(i:2))
+                .padding(20)
+                .multilineTextAlignment(.center)
                 
-                /// attach Label view
-                charsLabel.body
-                    .padding(20)
-                    .multilineTextAlignment(.center)
+            /// attach Label view
+            charsLabel.body
+                .padding(20)
+                .multilineTextAlignment(.center)
                 
-                /// attached ElementsList with CharsStringResult rows of content
-                NavigationView {
-                    ElementsList(model: $listElements.projectedValue).body
-                }
-                
-                /// done with layout
-                Spacer()
+            /// attached ElementsList with CharsStringResult rows of content
+            NavigationView {
+                ElementsList(model: $listElements.projectedValue).body
             }
+            /// done with layout
+            Spacer()
+        }
     }
 }
 
