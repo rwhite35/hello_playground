@@ -16,6 +16,9 @@ struct ContentView: View
     @StateObject var boxCast: Boxcast
     @StateObject var charsString: CharsString
     
+    /// validate User Name
+    @State private var showAlert = false
+    
     /// this needed hoisted to property status instead of trying to initialize in the body View
     @State var listElements = Elements(
         rowContent:(1...5).map { String("Row \($0)") }
@@ -47,10 +50,17 @@ struct ContentView: View
     // for text field
     func getUsersName() -> String
     {
-        let name = boxCast.getUsersName()
-        return name
+        do {
+            let username = try boxCast.validateUserName(boxCast.getUsersName())
+            return username
+        } catch {
+            showAlert = true
+            return "Error: \(error)"
+            
+        }
     }
     
+    // get Characters UUID
     func getCharsStringUUID() -> String
     {
         let uuid = charsString.getUUID()
@@ -70,6 +80,11 @@ struct ContentView: View
             Text("Hello \(getUsersName())")
                 .padding(20)
                 .multilineTextAlignment(.center)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Invalid User Name"),
+                          message: Text("Name was to short or to lond"),
+                          dismissButton: Alert.Button.cancel(Text("Dismiss")))
+                }
                 
             /// attach Form view
             charFormView.body

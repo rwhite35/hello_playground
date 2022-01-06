@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B16FD6D277B4A37005A5381 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B16FD6C277B4A37005A5381 /* Users.swift */; };
 		6B263E83277F79AE00143133 /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B263E82277F79AE00143133 /* CustomAppDelegate.swift */; };
+		6B2F2E66278684A900E81C1E /* BoxcastTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F2E65278684A900E81C1E /* BoxcastTest.swift */; };
 		6B3146D6277DEE3900A2804E /* ApiCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3146D5277DEE3900A2804E /* ApiCallback.swift */; };
 		6B3146D8277E348400A2804E /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3146D7277E348400A2804E /* ApiClient.swift */; };
 		6B3146DA277E4BA200A2804E /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3146D9277E4BA200A2804E /* CustomError.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		6B16FD6C277B4A37005A5381 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		6B263E82277F79AE00143133 /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
+		6B2F2E65278684A900E81C1E /* BoxcastTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxcastTest.swift; sourceTree = "<group>"; };
 		6B3146D5277DEE3900A2804E /* ApiCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallback.swift; sourceTree = "<group>"; };
 		6B3146D7277E348400A2804E /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		6B3146D9277E4BA200A2804E /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				6B33765626B0578500593BBB /* HelloTests.swift */,
 				6B33765826B0578500593BBB /* Info.plist */,
+				6B2F2E65278684A900E81C1E /* BoxcastTest.swift */,
 			);
 			path = HelloTests;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B2F2E66278684A900E81C1E /* BoxcastTest.swift in Sources */,
 				6B33765726B0578500593BBB /* HelloTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

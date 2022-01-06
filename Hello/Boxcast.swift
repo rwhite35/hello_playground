@@ -88,6 +88,20 @@ final class Boxcast: NSObject, ObservableObject
     func getUsersName() -> String { return self.name }
     
     
+    
+    // - MARK: Validate User Name
+    
+    /// validate the user name by checking the user name length
+    ///  - Returns User name string on success or throws an error on fail
+    func validateUserName(_ username: String?) throws -> String {
+        guard let username = username else { throw BoxcastValidationError.invalidValue }
+        guard username.count > 3 else { throw BoxcastValidationError.usernameToShort }
+        guard username.count < 24 else { throw BoxcastValidationError.usernameToLong }
+        return username
+    }
+    
+    
+    
     // - MARK: Users Async & Await Method
     
     /// fetch a collection of Users data using async interface
@@ -110,6 +124,22 @@ final class Boxcast: NSObject, ObservableObject
         catch {
             print("\(#line) unable to receive data from remote host: \(error)")
             return []
+        }
+    }
+}
+
+enum BoxcastValidationError: LocalizedError
+{
+    case invalidValue
+    case usernameToShort
+    case usernameToLong
+    
+    var errorDescription: String?
+    {
+        switch self {
+        case .invalidValue: return "Invalid input for username!"
+        case .usernameToShort: return "Username is to short!"
+        case .usernameToLong: return "Username is to long!"
         }
     }
 }
