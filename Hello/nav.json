@@ -1,0 +1,23 @@
+[
+    {
+        "id":"EF1CC5BB-4785-4D8E-AB98-5FA4E00B6A66",
+        "name":"App Navigation",
+	"items": [
+            {
+                "id":"EDCD038C-036F-4C40-826F-61C88CD84DDD",
+                "name":"Home",
+                "attribute": ["A","B"]
+            },
+            {
+                "id":"36A7CC40-18C1-48E5-BCD8-3B42D43BEAEE",
+                "name":"Second",
+                "attribute": ["B","C"]
+            },
+            {
+                "id":"CFB8C2DB-3478-4A10-92FA-3D2A2D5324FB",
+                "name":"Third",
+                "attribute": ["C","A"]
+            }
+        ]
+    }
+]
