@@ -23,8 +23,11 @@ final class Boxcast: NSObject, ObservableObject
     /// list of Users from asynchronous call to a remote host
     private var users = [Users]()
     
+    /// instance of ApiClient
+    /// private let apiClient = ApiClient()
+    
     /// on initialization, receives a JSON response object of users data.
-    init(string: String)
+    init(string: String) async
     {
         super .init()
         setDesc(string: string)
@@ -33,10 +36,13 @@ final class Boxcast: NSObject, ObservableObject
         if #available(iOS 15.0, *) {
             // NOTE: runs asynchronously, immediately and
             // doesn't wait for viewDidLoad(UIKit/UIViewController)
+            /*
             async {
                 let users = await fetchUsers()
                 self.setUsers(users: users)
             }
+            */
+            
         } else {
             // NOTE: fallback on SDK 14 and older completion implementation
             // runs after the View has been added to the stack
