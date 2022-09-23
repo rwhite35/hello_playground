@@ -27,7 +27,11 @@ struct HelloApp: App
     /// a trackable state of current scene
     @Environment(\.scenePhase) var scenePhase
     
-    /// initialize any configurable frameworks or other required startup methods
+    ///
+    @StateObject var contentVM = ContentViewModel()
+    
+    var boxCast: Boxcast = Boxcast(string:"boxcasters").self
+    
     init() {
         printMe()
     }
@@ -38,10 +42,11 @@ struct HelloApp: App
         WindowGroup<ContentView> {
             
             ContentView.init(
-                boxCast: Boxcast.init(string: "Boxcast"),
+                contentVM: contentVM,
+                boxCast: boxCast,
                 charsString: CharsString.init(
                     CharsStringModel.charsArray(),
-                    string: "Friend"
+                    string: "My Friend"
                 )
             )
         }

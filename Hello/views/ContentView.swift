@@ -13,11 +13,9 @@ import SwiftUI
 struct ContentView: View
 {
     /// on state change notify these publishers
+    @StateObject var contentVM: ContentViewModel
     @StateObject var boxCast: Boxcast
     @StateObject var charsString: CharsString
-    
-    /// validate User Name
-    @State private var showAlert = false
     
     /// this needed hoisted to property status instead of trying to initialize in the body View
     @State var listElements = Elements(
@@ -54,10 +52,9 @@ struct ContentView: View
             let username = try boxCast.validateUserName(boxCast.getUsersName())
             return username
         } catch {
-            showAlert = true
             return "Error: \(error)"
-            
         }
+        // contentVM.showAlert = true
     }
     
     // get Characters UUID
@@ -68,7 +65,6 @@ struct ContentView: View
     }
     
     var body: some View {
-        
         VStack(alignment: .trailing) {
             Spacer()
             /// Text row
@@ -80,12 +76,7 @@ struct ContentView: View
             Text("Hello \(getUsersName())")
                 .padding(20)
                 .multilineTextAlignment(.center)
-                .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Invalid User Name"),
-                          message: Text("Name was to short or to lond"),
-                          dismissButton: Alert.Button.cancel(Text("Dismiss")))
-                }
-                
+
             /// attach Form view
             charFormView.body
                 .padding(20)
@@ -108,6 +99,13 @@ struct ContentView: View
             /// done with layout
             Spacer()
         }
+        /*
+        .alert(isPresented: contentVM.$showAlert) {
+            Alert(title: Text("Invalid User Name"),
+                  message: Text("Name was to short or to lond"),
+                  dismissButton: Alert.Button.cancel(Text("Dismiss")))
+        }
+        */
     }
 }
 
